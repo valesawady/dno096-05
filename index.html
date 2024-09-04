@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>👴🏻👴🏼👴🏽👴🏾👴🏿 jQuery</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <main>
+            <p>
+                <a href="index.html" class="activo">Hola</a>
+                <a href="page-1.html">Selecciona</a>
+                <a href="page-2.html">Foto</a>
+            </p>
+            <h1></h1>
+            <h2></h2>
+            <p id="aqui"></p>
+            <p id="alla" class="escondido"></p>
+        </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            var texto = {
+                saludo: ["¡Hola mundo!","Bonjour!","Halli Hallo!","Hola a todos","Hallo","Hello, world!"],
+                nombre: "Mi nombre es Valeria Sawady",
+                motivo: "Tomé este curso porque me interesa mucho el área del diseño que aborda, y estoy comprometida en aprender en este campo. Dado que estas prácticas están altamente valoradas en la industria del diseño, considerándolo fundamental para mi crecimiento profesional. Mi razón de tomar el curso e intentar completar esta primera evaluación, es de poder aprender sin miedo a errores, a la prueba y error. Porque al final así funciona esto, en ir porbando hasta encontrar la manera que resulte y eso vuelve muy entretenido el curso. <span>Seguir leyendo</span>.",
+                etc: "Ya revisé mi primera nota y la verdad es que estoy muy feliz y satisfecha con mi resultado.",
+            };
+            var aleatorio = Math.floor(Math.random() * texto.saludo.length);
+            //var aleatorio = Math.floor(Math.random()*3);con esa matematica le estoy diciendo que me de un numero...Esto es js
+
+            console.log(aleatorio);
+            $("h1").html(texto.saludo[aleatorio]);
+            $("h2").html(texto.nombre);
+            $("#aqui").html(texto.motivo);
+            $("#alla").html(texto.etc);
+            function revelador() { //lo que hace esta función es agarrar lo que está allá y le cambia la clase
+                $("#alla").toggleClass("escondido");
+            }
+            $("span").hover(revelador);
+            //si quisiera que funcionara con click sería $("span").click(revelador);
+        </script>
+    </body>
+</html>
